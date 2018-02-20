@@ -73,35 +73,43 @@ namespace Console
             double n = 0;
             string inputa = null;
             string inputn = null;
+            System.Console.WriteLine("Enter Esc to exit");
             while (esc != true)
             {
-                System.Console.WriteLine("Enter Esc to exit");
-                System.Console.WriteLine("Enter first number:");
+                System.Console.WriteLine("Enter a number:");
                 inputa = System.Console.ReadLine();
 
-                System.Console.WriteLine("Enter second number:");
+                System.Console.WriteLine("Enter n number:");
                 inputn = System.Console.ReadLine();
 
-                try
+                bool acheck = double.TryParse(inputa, out a);
+                if (acheck)
                 {
-                    a = double.Parse(inputa);
-                    n = double.Parse(inputn);
-
-                    for (int i = 0; i <= n; i++)
+                    bool ncheck = double.TryParse(inputn, out n);
+                    if (ncheck)
                     {
-                        result =+ Math.Sqrt(a);
+                        for (int i = 1; i <= n; i++)
+                        {
+                            result = Math.Sqrt(a + result);
+                            System.Console.WriteLine(result);
+                        }
                     }
-
+                    else
+                    {
+                        System.Console.WriteLine("{0} not double input", inputn);
+                    }
                 }
-                catch (FormatException)
+                else
                 {
                     System.Console.WriteLine("{0} not double input", inputa);
                 }
 
+                if (inputa.ToLower().Equals("esc") || inputn.ToLower().Equals("esc"))
+                {
+                    esc = true;
+                }
 
             }
-
-
         }
-    }
+    }   
 }

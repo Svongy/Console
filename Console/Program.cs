@@ -12,7 +12,7 @@ namespace Console
 
         static void Main(string[] args)
         {
-            Tests.Test2();
+            Tests.Test3();
             
         }
 
