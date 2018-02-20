@@ -64,5 +64,44 @@ namespace Console
                 }
             }
         }
+
+        public static void Test3()
+        {
+            bool esc = false;
+            double result = 0;
+            double a = 0;
+            double n = 0;
+            string inputa = null;
+            string inputn = null;
+            while (esc != true)
+            {
+                System.Console.WriteLine("Enter Esc to exit");
+                System.Console.WriteLine("Enter first number:");
+                inputa = System.Console.ReadLine();
+
+                System.Console.WriteLine("Enter second number:");
+                inputn = System.Console.ReadLine();
+
+                try
+                {
+                    a = double.Parse(inputa);
+                    n = double.Parse(inputn);
+
+                    for (int i = 0; i <= n; i++)
+                    {
+                        result =+ Math.Sqrt(a);
+                    }
+
+                }
+                catch (FormatException)
+                {
+                    System.Console.WriteLine("{0} not double input", inputa);
+                }
+
+
+            }
+
+
+        }
     }
 }
